@@ -29,10 +29,12 @@ class TestCoffee:
     def test_name_is_immutable(self):
         """cannot change the name of the coffee"""
         coffee = Coffee("Mocha")
+        with pytest.raises(AttributeError):
+            coffee.name = "Peppermint Mocha"
 
         # comment out the next two lines if using Exceptions
-        coffee.name = "Peppermint Mocha"
-        assert coffee.name == "Mocha"
+        # coffee.name = "Peppermint Mocha"
+        # assert coffee.name == "Mocha"
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
